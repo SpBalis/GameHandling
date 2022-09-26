@@ -1,0 +1,879 @@
+{
+	"info": {
+		"_postman_id": "4ee3c9ad-d6fa-47a7-8eea-f9abd74aa096",
+		"name": "GameHandling",
+		"description": "**Web Rest api GameHanling**\n\n**For the deployment:**  \nJava version: 11.0.14  \nMaven version: 3.8.5  \nSpring version: 2.7.4  \nPostgres version: \"14.5, compiled by Visual C++ build 1914, 64-bit\"\n\n**Purpose of the application**\n\nApplication's purpose is to create new match or new odds per match and its management.\n\nIt can **create, update or delete** matches and odds.  \nSearch can be done by match id for matches or odds and by odd id.  \n  \nIn every request can be found an example of it working and what data was send",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13198734"
+	},
+	"item": [
+		{
+			"name": "New match",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"ARIS-PAO\",\r\n    \"match_date\": \"2022-11-16\",\r\n    \"match_time\": \"13:00:00\",\r\n    \"team_a\": \"ARIS\",\r\n    \"team_b\": \"PAO\",\r\n    \"sport\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/matches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"matches"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New match",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"ARIS-VOLOS\",\r\n    \"match_date\": \"2022-11-17\",\r\n    \"match_time\": \"13:00:00\",\r\n    \"team_a\": \"ARIS\",\r\n    \"team_b\": \"VOLOS\",\r\n    \"sport\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/matches",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"matches"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 06:57:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"description\": \"ARIS-VOLOS\",\n    \"match_date\": \"2022-11-16\",\n    \"match_time\": \"13:00:00\",\n    \"team_a\": \"ARIS\",\n    \"team_b\": \"VOLOS\",\n    \"sport\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all matches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/matches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"matches"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all matches",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/matches",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"matches"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 06:58:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"description\": \"OSFP-PAO\",\n        \"match_date\": \"2022-11-14\",\n        \"match_time\": \"12:00:00\",\n        \"team_a\": \"OSFP\",\n        \"team_b\": \"PAO\",\n        \"sport\": 1\n    },\n    {\n        \"id\": 2,\n        \"description\": \"ARIS-PAO\",\n        \"match_date\": \"2022-11-15\",\n        \"match_time\": \"13:00:00\",\n        \"team_a\": \"ARIS\",\n        \"team_b\": \"PAO\",\n        \"sport\": 1\n    },\n    {\n        \"id\": 3,\n        \"description\": \"ARIS-VOLOS\",\n        \"match_date\": \"2022-11-16\",\n        \"match_time\": \"13:00:00\",\n        \"team_a\": \"ARIS\",\n        \"team_b\": \"VOLOS\",\n        \"sport\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get match by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/matches/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"matches",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get match by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/matches/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"matches",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 06:56:21 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"description\": \"ARIS-PAO\",\n    \"match_date\": \"2022-11-15\",\n    \"match_time\": \"13:00:00\",\n    \"team_a\": \"ARIS\",\n    \"team_b\": \"PAO\",\n    \"sport\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Update match by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"ARIS-VOL\",\r\n    \"match_date\": \"2022-11-15\",\r\n    \"match_time\": \"12:00:00\",\r\n    \"team_a\": \"ARIS\",\r\n    \"team_b\": \"VOL\",\r\n    \"sport\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/matches/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"matches",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"ARIS-VOL\",\r\n    \"match_date\": \"2022-11-15\",\r\n    \"match_time\": \"12:00:00\",\r\n    \"team_a\": \"ARIS\",\r\n    \"team_b\": \"VOL\",\r\n    \"sport\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/matches/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"matches",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 06:59:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"description\": \"ARIS-VOL\",\n    \"match_date\": \"2022-11-14\",\n    \"match_time\": \"12:00:00\",\n    \"team_a\": \"ARIS\",\n    \"team_b\": \"VOL\",\n    \"sport\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "New odd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"specifier\":\"X\",\r\n    \"odd\":\"1.523\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/matches/1/odds",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"matches",
+						"1",
+						"odds"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New odd",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"specifier\":\"X\",\r\n    \"odd\":\"1.523\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/matches/1/odds",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"matches",
+								"1",
+								"odds"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 07:09:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"match\": {\n        \"id\": 1,\n        \"description\": \"OSFP-PAO\",\n        \"match_date\": \"2022-11-14\",\n        \"match_time\": \"12:00:00\",\n        \"team_a\": \"OSFP\",\n        \"team_b\": \"PAO\",\n        \"sport\": 1\n    },\n    \"specifier\": \"X\",\n    \"odd\": 1.523\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all odds by match id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/matches/1/odds",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"matches",
+						"1",
+						"odds"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all odds by match id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/matches/1/odds",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"matches",
+								"1",
+								"odds"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 07:29:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 4,\n        \"specifier\": \"2\",\n        \"odd\": 1.523\n    },\n    {\n        \"id\": 5,\n        \"specifier\": \"1\",\n        \"odd\": 1.523\n    },\n    {\n        \"id\": 6,\n        \"specifier\": \"X\",\n        \"odd\": 1.523\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get odd by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/odds/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"odds",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get odd by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/odds/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"odds",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 07:30:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"specifier\": \"1\",\n    \"odd\": 1.523\n}"
+				}
+			]
+		},
+		{
+			"name": "Update odd",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"5\",\r\n    \"specifier\":\"1\",\r\n    \"odd\":\"1.523\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/odds/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"odds",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update odd",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"5\",\r\n    \"specifier\":\"1\",\r\n    \"odd\":\"1.523\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/odds/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"odds",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 07:31:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"specifier\": \"1\",\n    \"odd\": 1.523\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete odd",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/odds/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"odds",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete odd",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/odds/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"odds",
+								"5"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 07:33:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete all odds by match id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/matches/1/odds",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"matches",
+						"1",
+						"odds"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete all odds by match id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/matches/1/odds",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"matches",
+								"1",
+								"odds"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 07:34:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete match by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/matches/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"matches",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete match by id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/matches/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"matches",
+								"1"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 07:35:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete all matches",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/matches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"matches"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete all matches",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/matches",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"matches"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Sep 2022 07:36:16 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	]
+}
